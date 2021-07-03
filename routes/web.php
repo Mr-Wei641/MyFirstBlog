@@ -14,5 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('about', function () {
+    return view('home.about');
+});
+Route::get('contact', function () {
+    return view('home.contact');
+});
+Route::get('single', function () {
+    return view('home.single');
+});
 
 include base_path('routes/admin/admin.php');

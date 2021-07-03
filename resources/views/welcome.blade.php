@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>MyFirstBlog</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -27,7 +27,7 @@
     <header>
         <div class="widewrapper masthead">
             <div class="container">
-                <a href="index.html" id="logo">
+                <a href="/" id="logo">
                     <img src="home/img/logo.png" alt="clean Blog">
                 </a>
         
@@ -42,13 +42,13 @@
                         <ul class="nav nav-pills navbar-nav">
                           
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="/">首页</a>
                             </li>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="/about">相关</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="/contact">联系我</a>
                             </li>                        
                         </ul>
                     </div>
@@ -84,7 +84,7 @@
                             <article class=" blog-teaser">
                                 <header>
                                     <img src="home/img/1.jpg" alt="">
-                                    <h3><a href="single.html">How to Create Template</a></h3>
+                                    <h3><a href="/single">How to Create Template</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -95,7 +95,7 @@
                             <article class="blog-teaser">
                                 <header>
                                     <img src="home/img/2.jpg" alt="">
-                                    <h3><a href="single.html">Clean Personal Blog Template</a></h3>
+                                    <h3><a href="/single">Clean Personal Blog Template</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -109,7 +109,7 @@
                             <article class="blog-teaser">
                                 <header>
                                     <img src="home/img/4.jpg" alt="">
-                                    <h3><a href="single.html">Blackor - Responsive HTML5 Theme</a></h3>
+                                    <h3><a href="/single">Blackor - Responsive HTML5 Theme</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -120,7 +120,7 @@
                             <article class=" blog-teaser">
                                 <header>
                                     <img src="home/img/1.jpg" alt="">
-                                    <h3><a href="single.html">How to Create Template</a></h3>
+                                    <h3><a href="/single">How to Create Template</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -134,7 +134,7 @@
                             <article class="blog-teaser">
                                 <header>
                                     <img src="home/img/3.jpg" alt="">
-                                    <h3><a href="single.html">Blackor - Responsive HTML5 Theme</a></h3>
+                                    <h3><a href="/single">Blackor - Responsive HTML5 Theme</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -145,7 +145,7 @@
                             <article class=" blog-teaser">
                                 <header>
                                     <img src="home/img/1.jpg" alt="">
-                                    <h3><a href="single.html">How to Create Template</a></h3>
+                                    <h3><a href="/single">How to Create Template</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -160,7 +160,7 @@
                             <article class="blog-teaser">
                                 <header>
                                     <img src="home/img/3.jpg" alt="">
-                                    <h3><a href="single.html">Blackor - Responsive HTML5 Theme</a></h3>
+                                    <h3><a href="/single">Blackor - Responsive HTML5 Theme</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -171,7 +171,7 @@
                             <article class=" blog-teaser">
                                 <header>
                                     <img src="home/img/5.jpg" alt="">
-                                    <h3><a href="single.html">How to Create Template</a></h3>
+                                    <h3><a href="/single">How to Create Template</a></h3>
                                     <span class="meta">19 August 2015, John Doe</span>
                                     <hr>
                                 </header>
@@ -189,7 +189,7 @@
                     
                     <div class="aside-widget">
                         <header>
-                            <h3>Featured Post</h3>
+                            <h3>Categories</h3>
                         </header>
                         <div class="body">
                             <ul class="clean-list">
