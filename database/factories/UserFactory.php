@@ -8,8 +8,9 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'username' => $faker->userName,
-        'password' => bcrypt('admin888'),
         'email' => $faker->email,
+        'password' => bcrypt('admin888'),
+        'remember_token' => $faker->regexify('[A-Za-z0-9._%+-]{10}'),
         'profile' => $faker->imageUrl(),
         'intro' => $faker->realText()
     ];

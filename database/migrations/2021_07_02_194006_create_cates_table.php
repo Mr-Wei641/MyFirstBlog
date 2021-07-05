@@ -15,6 +15,9 @@ class CreateCatesTable extends Migration
     {
         Schema::create('cates', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name')->comment('分类名称');
+            $table->integer('pid')->comment('父级分类id');
+            $table->string('path')->comment('路径');
             $table->timestamps();
         });
     }

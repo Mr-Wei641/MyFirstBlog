@@ -15,6 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title')->comment('文章标题');
+            $table->text('content')->comment('文章内容');
+            $table->integer('user_id')->comment('作者的id');
+            $table->integer('cate_id')->comment('分类id');
+            $table->string('img')->comment('文章主图');
             $table->timestamps();
         });
     }
