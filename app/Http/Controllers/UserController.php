@@ -17,7 +17,8 @@ class UserController extends Controller
         $request->validate([   
             'username' => 'required|regex:/\w{3,12}/',    
             'password' => 'same:repassword',
-            'email' => 'required|email',    
+            'email' => 'required|email',
+            'profile' => 'required|image',    
             'intro' => 'required'
         ],[
             'username.regex' => '请填写3-12位的字母数字或者下划线',

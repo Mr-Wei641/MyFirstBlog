@@ -15,6 +15,8 @@
     <link href={{asset("admin/css/custom.css")}} rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href={{asset("DataTables-1.10.21/media/css/jquery.dataTables.css")}}>
 </head>
 
 <body>
@@ -79,8 +81,11 @@ font-size: 16px;">最近一次登录时间 : 2021年7月5日 &nbsp; <a href="/ad
     <script src={{asset("admin/js/morris/morris.js")}}></script>
     <!-- CUSTOM SCRIPTS -->
     <script src={{asset("admin/js/custom.js")}}></script>
-
-
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src={{asset("DataTables-1.10.21/media/js/jquery.js")}}></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src={{asset("DataTables-1.10.21/media/js/jquery.dataTables.js")}}></script>
 </body>
-
+@section('Datatables')
+@show
 </html>
