@@ -44,6 +44,7 @@ class UserController extends Controller
     }
     //用户列表展示
     public function list(){
-        return view('admin.user.list');
+        $data = User::all();
+        return view('admin.user.list',compact('data'));
     }
 }
