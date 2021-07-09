@@ -47,4 +47,9 @@ class UserController extends Controller
         $data = User::all();
         return view('admin.user.list',compact('data'));
     }
+    //用户修改
+    //用户删除
+    public function delete(){
+        
+    }
 }

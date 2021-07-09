@@ -11,7 +11,7 @@
             <th>用户名</th>
             <th>邮箱</th>
             <th>个人介绍</th>
-            <th></th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -32,25 +32,48 @@
 @section('Datatables')
 <script>$(document).ready( function () {
     $('#table_id_example').DataTable({
-        "dom": '<"top"if>rt<"bottom"lp><"clear">',
+        "dom":'Bflrtip',
+        "buttons": [{
+            text: '<i class="fa fa-eye fa-lg" title="显示/隐藏"></i>',
+            extend: 'colvis'
+        }, {
+            text: '<i class="fa fa-clipboard fa-lg" title="复制到剪贴板"></i>',
+            extend: 'copy'
+        }, {
+            text: '<i class="fa fa-file-excel-o fa-lg" title="导出excel"></i>',
+            extend: 'excel'
+        }, {
+            text: '<i class="fa fa-file-pdf-o fa-lg" title="生成pdf"></i>',
+            extend: 'pdf'
+        },{
+            text: '<i class="fa fa-print fa-lg" title="打印"></i>',
+            extend: 'print'
+        }],
         "order": [1,'asc'],
         "columnDefs":[{
-            "targets":[0,-1,-2,-3],"orderable":false,
-            "targets":[0,-1,-2],"searchable":false,
-            "targets":[-1],
-            "sortable":false,
-                "render":function(data, type, row){
-                return '<a href="#" title="详情">' + 
-                '<i class="glyphicon glyphicon-eye-open"></i> ' + 
-                '</a>'+ 
-                '<a href="#editProject" data-toggle="modal" data-id="' + row.p_id +'" title="修改">' + 
+            "orderable": false,
+            "searchable":false,
+            "className": 'select-checkbox',
+            "targets":[0]},{
+            "orderable": false,
+            "searchable":false,
+            "targets": [-1],
+            "render":function(data, type, row){
+                return '<a href="#editProject" data-toggle="modal" data-id="' + row.id +'" title="修改">' + 
                 '<i class="glyphicon glyphicon-pencil"></i> ' + 
                 '</a>'+
-                '<a href="#delProject" data-toggle="modal" data-id="' + row.p_id +'" title="删除">' +
+                '<a href="#delProject" data-toggle="modal" data-id="' + row.id +'" title="删除">' +
                 '<i class="glyphicon glyphicon-trash text-danger"></i> ' + 
                 '</a>';
-            }
-        }]
+            }},
+            {
+            "orderable": false,
+            "targets":[-2]
+        }],
+        "select": {
+            "style":'multi',
+            "selector":'td:first-child'
+        }
     });
 } );</script>
 @endsection

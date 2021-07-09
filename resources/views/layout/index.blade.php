@@ -17,6 +17,9 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href={{asset("DataTables-1.10.21/media/css/jquery.dataTables.css")}}>
+    <link rel="stylesheet" type="text/css" href={{asset("DataTables-1.10.21/Buttons-1.7.1/css/buttons.bootstrap.min.css")}}>
+    <link rel="stylesheet" type="text/css" href={{asset("DataTables-1.10.21/Select-1.3.3/css/select.dataTables.min.css")}}>
+ 
 </head>
 
 <body>
@@ -85,6 +88,17 @@ font-size: 16px;">最近一次登录时间 : 2021年7月5日 &nbsp; <a href="/ad
     <script type="text/javascript" charset="utf8" src={{asset("DataTables-1.10.21/media/js/jquery.js")}}></script>
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src={{asset("DataTables-1.10.21/media/js/jquery.dataTables.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/JSZip-2.5.0/jszip.min.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/pdfmake-0.1.36/pdfmake.min.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/pdfmake-0.1.36/vfs_fonts.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/Buttons-1.7.1/js/dataTables.buttons.min.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/Buttons-1.7.1/js/buttons.bootstrap.min.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/Buttons-1.7.1/js/buttons.colVis.min.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/Buttons-1.7.1/js/buttons.html5.min.js")}}></script>
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/Buttons-1.7.1/js/buttons.print.min.js")}}></script>
+
+    <script type="text/javascript" src={{asset("DataTables-1.10.21/Select-1.3.3/js/dataTables.select.min.js")}}></script>
+    
 </body>
 @section('Datatables')
 @show
