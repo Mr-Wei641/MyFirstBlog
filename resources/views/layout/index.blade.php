@@ -57,6 +57,17 @@ font-size: 16px;">最近一次登录时间 : 2021年7月5日 &nbsp; <a href="/ad
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user-md fa-3x"></i> 分类管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/cate/create"><i class="fa fa-user-plus fa-2x"></i>分类添加</a>
+                            </li>
+                            <li>
+                                <a href="/admin/cate"><i class="fa fa-users fa-2x"></i>分类列表</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
