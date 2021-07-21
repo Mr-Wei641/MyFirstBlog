@@ -16,5 +16,12 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('user/edit/{id}','UserController@edit')->name('admin.user.edit');
     Route::put('user/update/{id}','UserController@update')->name('admin.user.update');
     //分类管理
+    Route::get('cate/anyData','CateController@anyData')->name('admin.cate.anyData');
     Route::resource('cate','CateController');
-});
+    //标签管理
+    Route::get('tag/anyData','TagController@anyData')->name('admin.tag.anyData');
+    Route::resource('tag','TagController');
+    //文章管理
+    Route::get('post/anyData','PostController@anyData')->name('admin.post.anyData');
+    Route::resource('post','PostController');
+}); 

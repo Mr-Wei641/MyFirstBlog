@@ -91,4 +91,8 @@ class UserController extends Controller
             return back()->with('info','删除失败');          
         }
     }
+
+    public static function getUsers(){
+        return User::orderBy('id','asc')->get();
+    }
 }

@@ -1,16 +1,14 @@
 @extends('layout.index')
 
-@section('title','用户列表')
+@section('title','标签列表')
 
 @section('content')
-<table id="table_id_example" class="display">
+<table id="table_id_tag" class="display">
     <thead>
         <tr>
             <th></th>
             <th>id</th>
-            <th>用户名</th>
-            <th>邮箱</th>
-            <th>个人介绍</th>
+            <th>标签名</th>
             <th>操作</th>
         </tr>
     </thead>
@@ -20,9 +18,7 @@
         <tr>
             <th></th>
             <th>id</th>
-            <th>用户名</th>
-            <th>邮箱</th>
-            <th>个人介绍</th>
+            <th>标签名</th>
             <th>操作</th>
         </tr>
     </tfoot>
@@ -31,22 +27,20 @@
 
 @section('Datatables')
 <script>$(document).ready( function () {
-    $('#table_id_example').DataTable({
+    $('#table_id_tag').DataTable({
         "dom":'Bflrtip',
         "processing":true,
         "serverSide":true,
         "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "所有"] ],
         "order": [1,'asc'],
         "ajax":{
-            "url":"/admin/user/anyData",
+            "url":"/admin/tag/anyData",
             "type":"get"
         },
         "columns":[
             {"data":"bbb","defaultContent":""},
             {"data":"id"},
-            {"data":"username"},
-            {"data":"email"},
-            {"data":"intro"},
+            {"data":"name"},
             {"data":"aaa","defaultContent":"操作"}
         ],
         "columnDefs":[{ 
@@ -55,18 +49,16 @@
             "targets":[0]},{
             "orderable": false,
             "render":function(data, type, row){
-                return '<a href="/admin/user/edit/' + row.id +'"  data-toggle="modal" title="修改">' + 
+                return '<form action="/admin/tag/' + row.id +'" method="post">' +
+                '<a href="/admin/tag/' + row.id +'/edit" title="修改">' + 
                 '<i class="glyphicon glyphicon-pencil"></i> ' + 
-                '</a>' + 
-                '<a href="/admin/user/delete/' + row.id +'" data-toggle="modal" title="删除">' +
-                '<i class="glyphicon glyphicon-trash text-danger"></i> ' + 
-                '</a>';
-            },
-            "targets": [-1]},   
-            {
-            "orderable": false,
-            "targets":[-2]
-        }],
+                '</a>' +
+                '<input class="btn btn-danger btn-xs" type="submit" value="删除" />' +
+                '<input type="hidden" name="_method" value="DELETE">' +
+                '<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
+                '</form>';
+            },  
+            "targets": [-1]}],
         "buttons": [{
             text: '<i class="fa fa-eye fa-lg" title="显示/隐藏"></i>',
             extend: 'colvis'
@@ -88,5 +80,6 @@
             "selector":'td:first-child'
         }
     });
-});</script>
+});
+</script>
 @endsection

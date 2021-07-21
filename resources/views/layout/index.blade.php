@@ -58,14 +58,36 @@ font-size: 16px;">最近一次登录时间 : 2021年7月5日 &nbsp; <a href="/ad
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user-md fa-3x"></i> 分类管理<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-book fa-3x"></i>分类管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/admin/cate/create"><i class="fa fa-user-plus fa-2x"></i>分类添加</a>
+                                <a href="/admin/cate/create"><i class="fa fa-plus fa-2x"></i>分类添加</a>
                             </li>
                             <li>
-                                <a href="/admin/cate"><i class="fa fa-users fa-2x"></i>分类列表</a>
+                                <a href="/admin/cate"><i class="fa fa-list fa-2x"></i>分类列表</a>
+                            </li>   
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bookmark fa-3x"></i> 标签管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/tag/create"><i class="fa fa-plus fa-2x"></i>标签添加</a>
                             </li>
+                            <li>
+                                <a href="/admin/tag"><i class="fa fa-list fa-2x"></i>标签列表</a>
+                            </li>       
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-pencil-square-o fa-3x"></i> 文章管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/post/create"><i class="fa fa-plus fa-2x"></i>文章添加</a>
+                            </li>
+                            <li>
+                                <a href="/admin/post"><i class="fa fa-list fa-2x"></i>文章列表</a>
+                            </li>       
                         </ul>
                     </li>
                 </ul>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cate;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class CateController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +15,22 @@ class CateController extends Controller
      */
     public function index()
     {
-        //分类列表
-        return view('admin.cate.index');
+        //标签列表
+        return view('admin.tag.index');
     }
     public function anyData(){
-        return Datatables::of(Cate::all())->make(true);
+        return DataTables::of(Tag::all())->make(true);
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()    
+    public function create()
     {
-        //添加分类
-        return view('admin.cate.create');
+        //标签添加页面
+        return view('admin.tag.create');
     }
 
     /**
@@ -40,19 +41,17 @@ class CateController extends Controller
      */
     public function store(Request $request)
     {
-        //分类保存
+        //标签添加
         $this->validate($request,[
-            'name' => 'required|unique:cates'
+            'name' => 'required|unique:tags'
         ],[
-            'name.required' => '分类名不能为空',
-            'name.unique' => '分类名已存在'
+            'name.required' => '标签名不能为空',
+            'name.unique' => '标签名已存在'
         ]);
-        $cate = new Cate;
-        $cate->name = $request->input('name');
-        $cate->pid = 0;
-        $cate->path = 0;
-        if($cate->save()){
-            return redirect('/admin/cate/create')->with('info','添加成功');
+        $tag = new Tag;
+        $tag->name = $request->input('name');
+        if($tag->save()){
+            return redirect('/admin/tag/create')->with('info','添加成功');
         }else{
             return back()->with('info','添加失败');
         }
@@ -77,9 +76,9 @@ class CateController extends Controller
      */
     public function edit($id)
     {
-        //分类修改页面
-        $info = Cate::find($id);
-        return view('admin.cate.edit',['info'=>$info]);
+        //修改标签
+        $info = Tag::find($id);
+        return view('admin.tag.edit',['info'=>$info]);
     }
 
     /**
@@ -91,17 +90,17 @@ class CateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //分类修改
+        //标签修改
         $this->validate($request,[
-            'name' => 'required|unique:cates'
+            'name' => 'required|unique:tags'
         ],[
-            'name.required' => '分类名不能为空',
-            'name.unique' => '分类名已存在'
+            'name.required' => '标签名不能为空',
+            'name.unique' => '标签名已存在'
         ]);
-        $cate = Cate::find($id);
-        $cate->name = $request->input('name');
-        if($cate->save()){
-            return redirect(route('cate.index'))->with('info','修改成功');
+        $tag = Tag::find($id);
+        $tag->name = $request->input('name');
+        if($tag->save()){
+            return redirect(route('tag.index'))->with('info','修改成功');
         }else{
             return back()->with('info','修改失败');
         }
@@ -115,17 +114,17 @@ class CateController extends Controller
      */
     public function destroy($id)
     {
-        //删除分类
-        $cate = Cate::find($id);
-        if($cate->delete()){
+        //删除标签 
+        $tag = Tag::find($id);
+        if($tag->delete()){
             return back()->with('info','删除成功');
         }else{
             return back()->with('info','删除失败');          
         }
     }
 
-    public static function getCates(){
-        //获取文章分类
-        return Cate::orderBy('id','asc')->get();        
+    public static function getTags(){
+        //获取文章标签
+        return Tag::orderBy('id','asc')->get();
     }
 }
