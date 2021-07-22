@@ -93,10 +93,9 @@ class CateController extends Controller
     {
         //分类修改
         $this->validate($request,[
-            'name' => 'required|unique:cates'
+            'name' => 'required'
         ],[
-            'name.required' => '分类名不能为空',
-            'name.unique' => '分类名已存在'
+            'name.required' => '分类名不能为空'
         ]);
         $cate = Cate::find($id);
         $cate->name = $request->input('name');

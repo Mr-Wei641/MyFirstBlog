@@ -21,9 +21,9 @@
         <div class="row text-center ">
             <div class="col-md-12">
                 <br /><br />
-                <h2> Binary Admin : Login</h2>
+                <h2> 博客后台管理系统登录</h2>
 
-                <h5>( Login yourself to get access )</h5>
+                <h5>( 登录后获取权限 )</h5>
                 <br />
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong> Enter Details To Login </strong>
+                        <strong> 输入登录信息 </strong>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="{{ route('admin.login') }}" method="post">
@@ -47,17 +47,15 @@
                                 <input name="password" type="text" class="form-control" placeholder="Your Password" />
                             </div>
                             <div class="form-group">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" /> Remember me
-                                </label>
                                 <span class="pull-right">
                                     <a href="#">Forget password ? </a>
                                 </span>
                             </div>
-
                             <input name="" type="submit" class="btn btn-primary " value="Login Now">
-                            <hr />
+                            <input name="" type="reset" class="btn btn-default " value="Reset">
+                            <hr/>
                             Not register ? <a href="registeration.html">click here </a>
+                            <div class="pull-right"><a href="/">Home Page </a></div>
                         </form>
                     </div>
 

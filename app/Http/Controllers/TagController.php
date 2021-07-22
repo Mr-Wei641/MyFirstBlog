@@ -92,10 +92,9 @@ class TagController extends Controller
     {
         //标签修改
         $this->validate($request,[
-            'name' => 'required|unique:tags'
+            'name' => 'required'
         ],[
-            'name.required' => '标签名不能为空',
-            'name.unique' => '标签名已存在'
+            'name.required' => '标签名不能为空'
         ]);
         $tag = Tag::find($id);
         $tag->name = $request->input('name');

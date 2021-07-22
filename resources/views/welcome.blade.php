@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>MyFirstBlog</title>
@@ -8,7 +9,7 @@
 
     <!-- Bootstrap styles -->
     <link rel="stylesheet" href="home/css/bootstrap.min.css">
-   
+
     <!-- Font-Awesome -->
     <link rel="stylesheet" href="home/css/font-awesome/css/font-awesome.min.css">
 
@@ -21,8 +22,9 @@
     <!--[if lt IE 9]>      
         <script src="home/js/respond.js"></script>
     <![endif]-->
-    
+
 </head>
+
 <body>
     <header>
         <div class="widewrapper masthead">
@@ -30,7 +32,7 @@
                 <a href="/" id="logo">
                     <img src="home/img/logo.png" alt="clean Blog">
                 </a>
-        
+
                 <div id="mobile-nav-toggle" class="pull-right">
                     <a href="#" data-toggle="collapse" data-target=".clean-nav .navbar-collapse">
                         <i class="fa fa-bars"></i>
@@ -40,7 +42,7 @@
                 <nav class="pull-right clean-nav">
                     <div class="collapse navbar-collapse">
                         <ul class="nav nav-pills navbar-nav">
-                          
+
                             <li>
                                 <a href="/">首页</a>
                             </li>
@@ -49,10 +51,13 @@
                             </li>
                             <li>
                                 <a href="/contact">联系我</a>
-                            </li>                        
+                            </li>
+                            <li>
+                                <a href="/admin/login">后台管理</a>
+                            </li>
                         </ul>
                     </div>
-                </nav>        
+                </nav>
 
             </div>
         </div>
@@ -60,7 +65,7 @@
         <div class="widewrapper subheader">
             <div class="container">
                 <div class="clean-breadcrumb">
-                    <a href="#">Blog</a>
+                    <a href="#">博客</a>
                 </div>
 
                 <div class="clean-searchbox">
@@ -74,111 +79,24 @@
             </div>
         </div>
     </header>
-
+    <?php $post = \App\Models\Post::all();$users = \App\Models\User::all(); ?>
     <div class="widewrapper main">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 blog-main">
                     <div class="row">
+                        @foreach($post as $k)
                         <div class="col-md-6 col-sm-6">
                             <article class=" blog-teaser">
                                 <header>
-                                    <img src="home/img/1.jpg" alt="">
-                                    <h3><a href="/single">How to Create Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
+                                    <img src="{{$k->img}}" alt="">
+                                    <h3><a href="/admin/post/{{$k->id}}">{{$k->title}}</a></h3>
+                                    <span class="meta">{{$k->created_at}},<?php foreach($users as $kk){if($k->user_id == $kk->id){echo $kk->username;}} ?></span>
                                     <hr>
                                 </header>
-                            
                             </article>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <article class="blog-teaser">
-                                <header>
-                                    <img src="home/img/2.jpg" alt="">
-                                    <h3><a href="/single">Clean Personal Blog Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                            
-                            </article>
-                        </div>
-                    </div>
-        
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <article class="blog-teaser">
-                                <header>
-                                    <img src="home/img/4.jpg" alt="">
-                                    <h3><a href="/single">Blackor - Responsive HTML5 Theme</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                               
-                            </article>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <article class=" blog-teaser">
-                                <header>
-                                    <img src="home/img/1.jpg" alt="">
-                                    <h3><a href="/single">How to Create Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                            
-                            </article>
-                        </div>
-
-                    </div>
-                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <article class="blog-teaser">
-                                <header>
-                                    <img src="home/img/3.jpg" alt="">
-                                    <h3><a href="/single">Blackor - Responsive HTML5 Theme</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                               
-                            </article>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <article class=" blog-teaser">
-                                <header>
-                                    <img src="home/img/1.jpg" alt="">
-                                    <h3><a href="/single">How to Create Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                            
-                            </article>
-                        </div>
-
-                    </div>
-                    <div class="copyrights">Collect from <a href="http://www.moobnn.com/"  title="网站模板">网站模板</a></div>
-                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <article class="blog-teaser">
-                                <header>
-                                    <img src="home/img/3.jpg" alt="">
-                                    <h3><a href="/single">Blackor - Responsive HTML5 Theme</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                               
-                            </article>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <article class=" blog-teaser">
-                                <header>
-                                    <img src="home/img/5.jpg" alt="">
-                                    <h3><a href="/single">How to Create Template</a></h3>
-                                    <span class="meta">19 August 2015, John Doe</span>
-                                    <hr>
-                                </header>
-                            
-                            </article>
-                        </div>
-
+                        @endforeach
                     </div>
 
                     <div class="paging">
@@ -186,53 +104,42 @@
                     </div>
                 </div>
                 <aside class="col-md-4 blog-aside">
-                    
+                    <?php $cates = \App\Models\Cate::all(); ?>
                     <div class="aside-widget">
                         <header>
                             <h3>Categories</h3>
                         </header>
                         <div class="body">
                             <ul class="clean-list">
-                                <li><a href="">Clean - Responsive HTML5 Template</a></li>
-                                <li><a href="">Responsive Pricing Table</a></li>
-                                <li><a href="">Yellow HTML5 Template</a></li>
-                                <li><a href="">Blackor Responsive Theme</a></li>
-                                <li><a href="">Portfolio Bootstrap Template</a></li>
-                                <li><a href="">Clean Slider Template</a></li>
+                                @foreach($cates as $k)
+                                <li><a href="">{{$k->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
-                
+                    <?php $post = \App\Models\Post::where('id','>',0)->orderBy('id','desc')->get(); ?>
                     <div class="aside-widget">
                         <header>
                             <h3>Related Post</h3>
                         </header>
                         <div class="body">
                             <ul class="clean-list">
-                                <li><a href="">Blackor Responsive Theme</a></li>
-                                <li><a href="">Portfolio Bootstrap Template</a></li>
-                                <li><a href="">Clean Slider Template</a></li>
-                                <li><a href="">Clean - Responsive HTML5 Template</a></li>
-                                <li><a href="">Responsive Pricing Table</a></li>
-                                <li><a href="">Yellow HTML5 Template</a></li>
+                                @foreach($post as $k)
+                                <li><a href="">{{{$k->title}}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
-
+                    <?php $tags = \App\Models\Tag::all(); ?>
                     <div class="aside-widget">
                         <header>
                             <h3>Tags</h3>
                         </header>
                         <div class="body clearfix">
                             <ul class="tags">
-                                <li><a href="#">HTML5</a></li>
-                                <li><a href="#">CSS3</a></li>
-                                <li><a href="#">COMPONENTS</a></li>
-                                <li><a href="#">TEMPLATE</a></li>
-                                <li><a href="#">PLUGIN</a></li>
-                                <li><a href="#">BOOTSTRAP</a></li>
-                                <li><a href="#">TUTORIAL</a></li>
-                                <li><a href="#">UI/UX</a></li>                            
+                                @foreach($tags as $k)
+                                <li><a href="#">{{$k->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -248,40 +155,35 @@
                     <div class="col-md-4 footer-widget">
                         <h3> <i class="fa fa-user"></i>About</h3>
 
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi laboriosam nostrum consequatur fugiat at, labore praesentium modi, quasi dolorum debitis reiciendis facilis, dolor saepe sint nemo, earum molestias quas.</p>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, error aspernatur assumenda quae eveniet.</p>
+                        <p>Hello, I`m Mr.Wei
+                            Welcome to my first blog,
+                            I’m interested in PHP Python Linux Laravel Ubuntu!
+                            I’m currently learning Laravel!
+                            I’m looking to collaborate on zhubajiewang for front end developers!
+                        </p>
                     </div>
 
-                    <div class="col-md-4 footer-widget">
-                        <h3> <i class="fa fa-pencil"></i> Recent Post</h3>
-                        <ul class="clean-list">
-                            <li><a href="">Clean - Responsive HTML5 Template</a></li>
-                            <li><a href="">Responsive Pricing Table</a></li>
-                            <li><a href="">Yellow HTML5 Template</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-4 footer-widget">
+                    <div class="col-md-4 footer-widget pull-right">
                         <h3> <i class="fa fa-envelope"></i>Contact Me</h3>
 
-                        <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil fugiat, cupiditate veritatis excepturi tempore explicabo.</p>
-                         <div class="footer-widget-icon">
+                        <p>How to reach me +8618509351656!</p>
+                        <div class="footer-widget-icon">
                             <i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-google"></i>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
         <div class="widewrapper copyright">
-                Copyright 2015 . More Templates <a href="http://www.moobnn.com/" target="_blank" title="模板在线">模板在线</a> <a href="http://guantaow.taobao.com" target="_blank">厚朴网络 淘宝店</a> - Collect from <a href="http://www.moobnn.com/" title="模板在线" target="_blank">模板在线</a> <a href="http://guantaow.taobao.com" target="_blank">厚朴网络 淘宝店</a>
+            Copyright 2021 Mr.Wei 
         </div>
     </footer>
-    
+
     <script src="home/js/jquery.min.js"></script>
     <script src="home/js/bootstrap.min.js"></script>
     <script src="home/js/modernizr.js"></script>
 
 </body>
+
 </html>

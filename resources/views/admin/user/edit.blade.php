@@ -45,9 +45,13 @@
                     </div>  
                     <div class="form-group">
                         <label>自我介绍</label>
-                        <textarea class="form-control" rows="5" name="intro"></textarea>
+                        <textarea class="form-control" rows="5" name="intro">{{$info->intro}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Button</button>
                     <button type="reset" class="btn btn-default">Reset Button</button>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -78,12 +78,14 @@ $(document).ready( function () {
             "targets": [-2]},{
             "orderable": false,
             "render":function(data, type, row){
-                return '<a href="/admin/post/edit/' + row.id +'"  data-toggle="modal" title="修改">' + 
+                return '<form action="/admin/post/' + row.id +'" method="post">' +
+                '<a href="/admin/post/' + row.id +'/edit" title="修改">' + 
                 '<i class="glyphicon glyphicon-pencil"></i> ' + 
-                '</a>' + 
-                '<a href="/admin/post/delete/' + row.id +'" data-toggle="modal" title="删除">' +
-                '<i class="glyphicon glyphicon-trash text-danger"></i> ' + 
-                '</a>';
+                '</a>' +
+                '<input class="btn btn-danger btn-xs" type="submit" value="删除" />' +
+                '<input type="hidden" name="_method" value="DELETE">' +
+                '<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
+                '</form>';
             },
             "targets": [-1]}
         ],

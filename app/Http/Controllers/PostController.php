@@ -50,9 +50,16 @@ class PostController extends Controller
         $request->validate([   
             'title' => 'required|unique:posts',    
             'content' => 'required',
-            'img' => 'required|image'
+            'img' => 'required|image',
+            'cate_id' => 'gt:0',
+            'tag_id' => 'required'
         ],[
-            'title.unique' => '文章名已存在'
+            'title.required' => '请填写文章名',
+            'title.unique' => '文章名已存在',
+            'cate_id.gt' => '请选择分类',
+            'content.required' => '请填写内容',
+            'img.required' => '请上传文章主图',
+            'tag_id.required' => '请选择文章标签'
         ]);
         $post = new Post;
         $post -> title = $request->input('title');
@@ -83,7 +90,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //文章详情
+        return view('admin.post.show');
     }
 
     /**
@@ -94,7 +102,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //文章编辑页面
+        $cates = CateController::getCates();
+        $tags = TagController::getTags();
+        $info = Post::find($id);
+        $tag = $info->tag()->orderBy('name','asc')->get();
+        return view('admin.post.edit',['info'=>$info,'cates'=>$cates,'tags'=>$tags,'tag'=>$tag]);
     }
 
     /**
@@ -106,7 +119,39 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //文章更新
+        $request->validate([   
+            'title' => 'required',    
+            'content' => 'required',
+            'img' => 'required|image',
+            'cate_id' => 'gt:0',
+            'tag_id' => 'required'
+        ],[
+            'title.required' => '请填写文章名',
+            'cate_id.gt' => '请选择分类',
+            'content.required' => '请填写内容',
+            'img.required' => '请上传文章主图',
+            'tag_id.required' => '请选择文章标签'
+        ]);
+        $post = Post::find($id);
+        $post -> title = $request->input('title');
+        $post -> content = $request->input('content');
+        $post -> user_id = auth()->id();
+        $post -> cate_id = $request->input('cate_id');
+        if($request->hasFile('img')){
+            $path = './uploads/'.date('Ymd');
+            $suffix = $request->file('img')->getClientOriginalExtension();
+            $filename = time().rand(100000,999999).'.'.$suffix;
+            $request->file('img')->move($path,$filename);
+            $post -> img = trim($path.'/'.$filename,'.');
+        }
+        if($post->save()){
+            if($post->tag()->sync($request->tag_id)){
+                return redirect('/admin/post/create')->with('info','添加成功');
+            }else{
+                return back()->with('info','添加失败');
+            }
+        }
     }
 
     /**
@@ -117,6 +162,14 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //文章删除
+        $post = Post::find($id);
+        if($post->delete()){
+            if($post->tag()->sync([])){
+                return back()->with('info','删除成功');
+            }else{
+                return back()->with('info','删除失败');
+            }
+        }
     } 
 }

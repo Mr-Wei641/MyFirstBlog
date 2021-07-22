@@ -20,4 +20,8 @@
                     <button type="submit" class="btn btn-primary">确定</button>
                     <button type="reset" class="btn btn-default">重置</button>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
